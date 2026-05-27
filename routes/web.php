@@ -5,6 +5,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -45,3 +46,6 @@ Route::post('/checkout/process', [OrderController::class, 'processCheckout'])->n
 Route::get('/customer/confirmation/{orderId}', [OrderController::class, 'confirmation'])->name('customer.order.confirmation');
 Route::get('/customer/orders/{id}', [CustomerController::class, 'show'])->name('customer.show');
 Route::get('orders', [CustomerController::class, 'orders'])->name('customer.orders');
+
+Route::get('/register', [RegisterController::class, 'show'])->name('register');
+Route::post('/register', [RegisterController::class, 'register']);
